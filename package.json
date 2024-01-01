@@ -1,0 +1,29 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "namaste react course",
+  "main": "App.js",
+  "scripts": {
+    "start" : "parcel index.html",
+    "build" : "parcel build.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "(https://github.com/rashmii0512/react1)"
+  },
+  "keywords": [],
+  "author": "Rashmi",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.10.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserList":[
+    "last 2 version"
+  ]
+}
