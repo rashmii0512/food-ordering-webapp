@@ -1,56 +1,78 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+/**
+ * Header
+ *    -logo
+ *    -Nav Items
+ * Body
+ *    -Search
+ *    -Restaurant container
+ *       -Restaurant card
+ * Footer
+ *    -Copyright
+ *    -links
+ *    -adress
+ *    -COntact
+ */
 
-/* episode 1 code 
-const heading = React.createElement("h1", {id:"head", className:"head"}, "Hello World from React!");
-
-const parent = React.createElement(
-    "div",
-    {id:"parent"},
-    React.createElement(
-        "div",
-        {id:"child"}, [
-        React.createElement("h2", {id:"head_two"}, "this is inside child div which is inside parent div"),
-        React.createElement("h2", {id:"head_three"}, "this is sibling of the prior heading")
-    ])
-)
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(heading);
-root.render(parent);
-//render replaces , it does not append
-// so any render done before or already existing code in the root will be replaced the object in the new render
-*/
-
-//react element
-const jsxheading = (<h1 id="head">First react element put inside 2nd one</h1>);
-const jsxheading2 = (<h1 id="head">{jsxheading}Second element as js inside react component</h1>); 
-//here we are putting js code inside html using {}
-const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(jsxheading);
-
-//react functional Component
-const HeadingComponent = () => {
-    return <h1 id="head">Heading using Functional Component!</h1>;
+const Header = () => {
+    return (
+        <div className="header">
+            <img  className="logo"  src="https://t3.ftcdn.net/jpg/04/03/74/22/360_F_403742248_8DDzcFF4jw05lWqftk2yxzKRpFvpZ01Y.jpg" />
+            <div className="nav-items">
+                <ul>
+                    <li>Home</li>
+                    <li>About us</li>
+                    <li>Contact us</li>
+                    <li>Cart</li>
+                </ul>
+            </div>
+        </div>
+    )
 }
 
-const HeadingComponent2 = () => <h1 id="head">Heading using Functional Component!</h1>;
-//if you only have one line which is a return statement
+const styleCard = {
+    background: "#f0f0f0",
+};
+// writing css  like code inside js using jsx
 
-// root.render(<HeadingComponent />);
+const Card = () => {
+    return (
+        <div className="res-card" style={styleCard}>
+            <div className="res-logo">
+                <img  src="https://www.shutterstock.com/image-photo/dum-handi-chicken-biryani-prepared-600nw-2000023562.jpg" />
+            </div>
+            <div className="res-info">
+                <h3>Meghana Foods</h3>
+                <h4>Biryani, North Indian, Asians</h4>
+                <h4>4.4 stars</h4>
+                <h4>38 minutes</h4>
+            </div>
+        </div>
+    )
+}
 
-//Component Composition
-const HeadingComponent3 = () => (
-    <div id="container">
-        {jsxheading2}
-        <HeadingComponent />  
-        {/* or use  <HeadingComponent></HeadingComponent>  */}
-        <h1 id="head">Componenet Composition used here</h1>
-    </div>
-);
 
-root.render(<HeadingComponent3 />);
+const Body = () => {
+    return (
+        <div className="body">
+            <div className="search"></div>
+            <div className="res-container">
+                <Card/>
+            </div>
+        </div>
+    )
+}
+const App = () => {
+    return (
+        <div className="app">
+            <Header />
+            <Body/>
+        </div>
+    )
+}
 
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
-//Note if you make an api call in js inside jsx an the api is malicious it is known as   Cross Site scripting attack and it is dangerous as one can do may things if they have access to your browser javascript , jsx deals with this , jsx escapes it 
+root.render(<App/>)
