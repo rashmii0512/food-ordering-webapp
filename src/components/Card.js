@@ -79,11 +79,11 @@ export const Card4 = (props) => {
     // console.log(resData?.info);
     //then you can directly acces ,, i have not applied this below
     return (
-        <div className="res-card" style={styleCard}>
+        <div className="res-card" >
             <div className="res-logo">
 
                 <img  src= {CON_URL + resData.info.cloudinaryImageId} />
-                {console.log(CON_URL + resData.info.cloudinaryImageId)}
+                {/* {console.log(CON_URL + resData.info.cloudinaryImageId)} */}
             </div>
             <div className="res-info">
                 <h4>{name}</h4>

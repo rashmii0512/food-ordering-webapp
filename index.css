@@ -4,7 +4,12 @@
     justify-content: space-between;
     align-items: center;
     border: 1px solid black;
-    margin-bottom: 15px;
+    /* box-shadow: 0px 1px 10px #999; */
+    /* width : 100%; */
+    /* margin: 0 2% 0  2%; */
+    padding-right : 2%;
+    margin-bottom: 2%;
+    
 }
 .nav-items > ul {
     display:flex;
@@ -14,7 +19,16 @@
     padding: 15px;
     list-style-type: none;
     font-size: 20px;
+    
 }
+
+.nav-items > ul > button {
+    padding: 5px;
+    list-style-type: none;
+    font-size: 20px;
+    
+}
+
 .logo{
     height:100px ;
 }
@@ -31,25 +45,95 @@
 .res-card{
     /* background-color : #f0f0f0; */
     padding: 10px;
-    margin: 10px;
-    /* height: 300px; */
-    width: 200px;
+    /* margin: 10px; */
+    height: 400px;
+    width: 300px;
+    border-radius:5%;
+    box-sizing: border-box;
 }
 
 .res-card:hover{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 9px;
+    transform: scale(0.95);
 }
 
 
 .res-logo{
-    height: 150px;
+    height: 200px;
     /* border: 1px black solid; */
     display: flex;
     justify-content: center;
+    box-sizing: border-box;
+    /* border-radius:10%; */
 }
 
 .res-logo > img {
     width: 100%;
+    /* box-sizing: border-box; */
+    border-radius:10%;
+    object-fit: cover;
 }
+
+.top{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 3px;
+    margin: 3px;
+}
+.top:hover{
+    cursor: pointer;
+}
+
+
+.shimmer-container{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: flex-start;
+    width: 80%;
+    padding: 0 10% 0 10%;
+    
+}
+
+.shimmer-card{
+    background-color : #f0f0f0;
+    padding: 10px;
+    margin: 10px;
+    height: 400px;
+    width: 280px;
+    border-radius:10%;
+    box-sizing: border-box;
+}
+
+.shimmer-logo{
+    height: 150px;
+    padding-left:10%;
+    width:90%;
+    border-radius:5%;
+    /* box-sizing: border-box; */
+    /* border: 1px black solid; */
+    display: flex;
+    justify-content: center;
+    background-color: #dbd9d9;
+
+}
+
+.filter{
+    display: flex;
+    flex-direction: row;
+    margin: 1%;
+}
+
+.filter > button{
+    margin: 0 1% 0 1%;
+    
+}
+
+.filtet > div > button {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+
 
