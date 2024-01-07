@@ -30,4 +30,9 @@ try to have less than 100 lines of code for each component
 
 # React Hooks
 - useState()
-- 
+- useEffect()
+
+
+# 2 types of routing:
+- client side routing
+- server side routing

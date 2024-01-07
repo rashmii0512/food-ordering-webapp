@@ -1,5 +1,8 @@
 import {CON_URL} from "../utils/constants"
 import {resList} from "../utils/mockData";
+import {Link} from "react-router-dom";
+
+
 export const styleCard = {
     background: "#f0f0f0",
 };
@@ -59,7 +62,11 @@ export const Card3 = (props) => {
     // const {resName, cuisine, rating , minutes } = resData?.data;
     //then you can directly acces ,, i have not applied this below
     return (
-        <div className="res-card" style={styleCard}>
+        <div 
+            className="res-card" 
+            style={styleCard} 
+            
+        >
             <div className="res-logo">
                 <img  src={resData.res_img} />
             </div>
@@ -75,11 +82,18 @@ export const Card3 = (props) => {
 
 export const Card4 = (props) => {
     const {resData} = props;
-    const {name, cuisines, avgRating , sla } = resData?.info;
-    // console.log(resData?.info);
-    //then you can directly acces ,, i have not applied this below
+    const {id, name, cuisines, avgRating , sla } = resData?.info;
+    console.log("/resmenu/"+String(id));
     return (
-        <div className="res-card" >
+        <Link to={"/resmenu/"+String(id)} className="cardLink">
+        <div 
+            className="res-card"
+            // onClick = {()=>{
+            //     console.log("here");
+            //     const link = "/resmenu/"+String(id);
+                
+            // }} 
+        >
             <div className="res-logo">
 
                 <img  src= {CON_URL + resData.info.cloudinaryImageId} />
@@ -92,6 +106,7 @@ export const Card4 = (props) => {
                 <p>{sla.deliveryTime} minutes</p >
             </div>
         </div>
+        </Link>
     )
 };
 
