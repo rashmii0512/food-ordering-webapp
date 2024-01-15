@@ -216,6 +216,13 @@ hr{
 }
 
 
+/* About user card */
 
-
+.user-card{
+    width: 60%;
+    margin: 2% 20% 2% 20%;
+    padding:2%;
+    border: 1px solid black;
+    border-radius:10%;
+}
 

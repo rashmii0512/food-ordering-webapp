@@ -16,4 +16,8 @@ export const RES_LINK_1 =
 
 export const RES_LINK_2 = 
 "&catalog_qa=undefined&submitAction=ENTER";
-// export {CON_URL, LOGO_URL};
+// export {CON_URL, LOGO_URL};.
+
+
+export const GITHUB_URL = 
+"https://api.github.com/users/rashmii0512" ;
