@@ -1,15 +1,16 @@
 import {resList, swiggyList} from "../utils/mockData";
 import {RES_IMG} from "../utils/constants"
-import {styleCard, CardOld, Card , Card2, Card3, Card4 } from "./Card";
+import { Card4 } from "./Card";
 import {useState, useEffect} from "react" ;
 import Shimmer from "./Shimmer";
-
+import useOnlineStatus from "../utils/useOnlineStatus"
 
 const Body = () => {
 
     const [filteredListOfRestaurant, setFilteredListOfRestaurant] = useState([]);
     const [listOfRestaurant, setListOfRestaurant] = useState([]);
     const [search, setSearch] = useState("");
+    const onlineStatus = useOnlineStatus();
 
     useEffect(()=>{
         fetchData();
@@ -20,11 +21,12 @@ const Body = () => {
             "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.16876274291669&lng=72.9584626480937&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
         );
         const json = await data.json();
-        console.log(json);
+        // console.log(json);
         // console.log(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants );
         // optional chaining
-        setListOfRestaurant(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setFilteredListOfRestaurant(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setListOfRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilteredListOfRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        // console.log(filteredListOfRestaurant);
     };
 
     //COnditional Rendering
@@ -35,7 +37,10 @@ const Body = () => {
     //    ) 
     // }
 
-    return  filteredListOfRestaurant.length == 0 ?( 
+    if(onlineStatus === false) return (<h1>You are offline</h1>);
+
+    return  filteredListOfRestaurant ? (
+    filteredListOfRestaurant.length == 0 ?( 
         <Shimmer/> 
     ): (
         <div className="body">
@@ -69,7 +74,7 @@ const Body = () => {
                     const filteredList =  listOfRestaurant.filter(
                         (res)=> res.info.avgRating > 4.4   
                     );
-                    console.log(filteredList);
+                    // console.log(filteredList);
                     setFilteredListOfRestaurant(filteredList);
                   }}
                 >
@@ -86,6 +91,9 @@ const Body = () => {
             </div>
         </div>
     )
+    ) :(
+        <Shimmer />
+    );
 };
 
 export default Body;

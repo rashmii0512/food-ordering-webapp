@@ -25,7 +25,7 @@ const ResDish = (props) => {
                         <img src={DISH_URL + imageId }/>
                         <span>ADD</span>
                     </button>
-                </div>
+                </div> 
             </div>
             <hr/>
         </div>

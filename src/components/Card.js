@@ -83,7 +83,7 @@ export const Card3 = (props) => {
 export const Card4 = (props) => {
     const {resData} = props;
     const {id, name, cuisines, avgRating , sla } = resData?.info;
-    console.log("/resmenu/"+String(id));
+    // console.log("/resmenu/"+String(id));
     return (
         <Link to={"/resmenu/"+String(id)} className="cardLink">
         <div 
