@@ -87,23 +87,21 @@ export const Card4 = (props) => {
     return (
         <Link to={"/resmenu/"+String(id)} className="cardLink">
         <div 
-            className="res-card"
-            // onClick = {()=>{
-            //     console.log("here");
-            //     const link = "/resmenu/"+String(id);
-                
-            // }} 
+            className="h-[300px] w-[250px] m-4  rounded-md  hover:scale-[.92]  transition-transform  delay-125"
         >
-            <div className="res-logo">
+            <div className="  ">
 
-                <img  src= {CON_URL + resData.info.cloudinaryImageId} />
+                <img className=" h-[150px] w-[100%] rounded-md object-cover"  src= {CON_URL + resData.info.cloudinaryImageId}  />
                 {/* {console.log(CON_URL + resData.info.cloudinaryImageId)} */}
             </div>
-            <div className="res-info">
-                <h4>{name}</h4>
-                <p>{cuisines.join(", ")}</p>
-                <p>{avgRating} rating</p>
-                <p>{sla.deliveryTime} minutes</p >
+            <div className="res-info  p-2">
+                <h4 className="font-medium">{name}</h4>
+                <div className="flex font-medium "> 
+                    <p>🌟 {avgRating}  ·</p>
+                    <p className="mx-1"> {sla.deliveryTime} mins</p >
+                </div>
+                <p >{cuisines.join(", ")}</p>
+                
             </div>
         </div>
         </Link>
