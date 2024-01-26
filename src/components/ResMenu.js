@@ -10,6 +10,7 @@ const ResMenu = () => {
     const params = useParams();
     const  [filteredMenu , setFilteredMenu] = useState([]);
     const {resto, menu, carousal, all} = useRestaurantMenu(params.resId) ;
+    const [showIndex, setShowIndex] = useState(0);
     
 
     useEffect(()=>{
@@ -96,11 +97,16 @@ const ResMenu = () => {
             </div>
             <hr className="my-2" />
             {
-                filteredMenu.map((c)=>(
+                filteredMenu.map((c, index)=>(
                     <div>
                         {/* <ResDish key={dish?.card?.info.id} props={dish?.card}/> */}
                         {/* {dish.card?.card?.title} */}
-                        <Category category={c} veg={veg} />
+                        <Category 
+                            category={c} 
+                            veg={veg} 
+                            show={showIndex == index ? true : false} 
+                            setShowIndex = {() => setShowIndex(index) }
+                        />
 
                     </div>
                 ))
