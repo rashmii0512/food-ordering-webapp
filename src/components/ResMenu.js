@@ -3,18 +3,21 @@ import ResDish from "./ResDish";
 import Shimmer from "./Shimmer";
 import {useParams} from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import Category from "./Category";
 
 const ResMenu = () => {
 
     const params = useParams();
     const  [filteredMenu , setFilteredMenu] = useState([]);
-    const {resto, menu} = useRestaurantMenu(params.resId) ;
+    const {resto, menu, carousal, all} = useRestaurantMenu(params.resId) ;
     
 
     useEffect(()=>{
         if(menu){
-            setFilteredMenu(menu);
+            // setFilteredMenu(menu);
+            setFilteredMenu(all);
             // console.log(menu);
+            // console.log(all);
         }
         
     }, [menu]);
@@ -24,40 +27,34 @@ const ResMenu = () => {
 
     const forVeg = () => {
         setVeg("true");
-        const newList = menu.filter((dish)=>{
-            return dish.card?.info?.itemAttribute?.vegClassifier == "VEG";
-        })
-        setFilteredMenu(newList);
+        // const newList = menu.filter((dish)=>{
+        //     return dish.card?.info?.itemAttribute?.vegClassifier == "VEG";
+        // })
+        // setFilteredMenu(newList);
     }
 
     const forNonVeg = () => {
         setVeg("false");
-        setFilteredMenu(menu);
+        // setFilteredMenu(menu);
     }
     
-
-    return filteredMenu.length === 0 
+    return (filteredMenu.length === 0 && veg=="false" )
     ? <Shimmer/> 
     : (
-        <div className="px-[10%] flex flex-col justify-between">
+        <div className="px-[20%] flex flex-col justify-between">
             <div className="res-head">
                 <div>
                     
                     
-{/* <label class="relative inline-flex items-center cursor-pointer">
-  <input type="checkbox" value="" class="sr-only peer">
-  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div></input>
-  <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Toggle me</span>
-</label> */}
 
 
                     <div className="flex justify-between">
                         <div>
                         <h1 className=" text-xl">{resto.name}</h1>
-                        {console.log(resto)}
+                        {/* {console.log(resto)} */}
                         <p className=" text-lg">{resto?.slugs?.city}</p>
                         <p>{resto?.cuisines.join(", ")}</p>
-                        <p className="mx-1"> {resto?.sla.deliveryTime} mins {resto?.feeDetails?.message}</p >
+                        <p className="mx-1"> {resto?.sla.deliveryTime} mins | {resto?.feeDetails?.message}</p >
                         </div>
                     
                         <div  className="py-[1%]">
@@ -80,36 +77,45 @@ const ResMenu = () => {
             <hr className="my-2"/>
             <div className = "px-4 my-2 flex items-center">
                 <span className="pr-2">Veg Only   </span>
-                <label class="relative inline-flex items-center cursor-pointer">
-                <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
-
                     
                 < input 
                   type="checkbox" 
                   onClick= {() =>{
-                    console.log(veg);
+                    // console.log(veg);
                     veg === "false" 
                     ?   forVeg()
                     :   forNonVeg();
                   }}
                   
-                  className="sr-only peer"
+                  className="  appearance-none relative w-[3.25rem] h-7 rounded-full shadow-sm bg-gray-300  cursor-pointer transition-colors ease-in-out duration-200 focus:ring-blue-600 disabled:pointer-events-none checked:bg-none checked:text-blue-600 checked:border-blue-600 focus:checked:border-blue-600 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-600 before:inline-block before:w-5 before:h-5 before:m-1 before:bg-white checked:before:bg-green-600 before:translate-x-0 checked:before:translate-x-full before:rounded-full before:shadow before:transform before:ring-0 before:transition before:ease-in-out before:duration-200 dark:before:bg-gray-400 dark:checked:before:bg-blue-200"
                 /> 
     
-                </div>
-                </label>
+                {/* </div> */}
+                {/* </label> */}
                 
             </div>
             <hr className="my-2" />
             {
-                filteredMenu.map((dish)=>(
+                filteredMenu.map((c)=>(
+                    <div>
+                        {/* <ResDish key={dish?.card?.info.id} props={dish?.card}/> */}
+                        {/* {dish.card?.card?.title} */}
+                        <Category category={c} veg={veg} />
+
+                    </div>
+                ))
+
+                
+
+
+            }
+            {/* {
+                carousal.map((dish)=>(
                     <div>
                         <ResDish key={dish?.card?.info.id} props={dish?.card}/>
                     </div>
                 ))
-
-
-            }
+            } */}
         </div>
     )
 }
