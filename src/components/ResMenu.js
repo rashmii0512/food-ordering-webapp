@@ -105,7 +105,8 @@ const ResMenu = () => {
                             category={c} 
                             veg={veg} 
                             show={showIndex == index ? true : false} 
-                            setShowIndex = {() => setShowIndex(index) }
+                            setShowIndex = {(i) => setShowIndex(i) }
+                            index = {index}
                         />
 
                     </div>
