@@ -32,7 +32,7 @@ class UserClass extends React.Component {
         this.setState({
             userInfo : jsonData,
         })
-        console.log(jsonData);
+        // console.log(jsonData);
 
         
     }
@@ -57,7 +57,7 @@ class UserClass extends React.Component {
                         })
                     }}
                 >incriment count</button>
-                <h2>{count2}</h2>
+                {/* <h2>{count2}</h2> */}
                 <h2>Name:{name}</h2>
                 <h2>url: {html_url}</h2>
                 <h4>Contact @rashmii0512</h4>

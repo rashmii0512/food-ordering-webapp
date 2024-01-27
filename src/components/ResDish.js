@@ -12,7 +12,7 @@ const ResDish = (props) => {
     return (
 
         <div className="res-dish-container">
-            {console.log(items)}
+            {/* {console.log(items)} */}
             <div className="flex justify-between items-center min-h-[150px]">
                 <div>
                     <p className=" text-lg font-['Proxima Nova', Ariel] ">{name}</p>
