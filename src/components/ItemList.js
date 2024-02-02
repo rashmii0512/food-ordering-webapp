@@ -9,9 +9,9 @@ const ItemList = ({items}) => {
             
             {
                 items.map((dish)=>(
-                    <div>
+                    <div key={dish?.card?.info.id} >
                         {/* {console.log(dish?.card?.info)} */}
-                        <ResDish key={dish?.card?.info.id} props={dish?.card}/>
+                        <ResDish  props={dish?.card} />
                         {/* {dish.card?.card?.title} */}
                         {/* <Category category={c} /> */}
         

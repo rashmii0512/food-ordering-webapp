@@ -1,14 +1,34 @@
 import {DISH_URL} from "../utils/constants"
+import {useDispatch} from "react-redux";
+import {addItem} from "../redux/cartSlice";
+import {useState} from "react";
 
 const ResDish = (props) => {
+    const [num, setNum] = useState(0);
     const items = props.props;
-    // console.log(items?.info);
+    // console.log("resdish");
+    // console.log(props);
+    // console.log(items);
     if(!items){
+        console.log("err");
         return(<div></div>)
     }
     // console.log(props);
     const  {imageId, name, category, description, itemAttribute, offerTags , price, ratings } =  items?.info;
     // console.log(offerTags); offertag not present to all thats why error
+
+
+    const dispatch = useDispatch();
+
+    handleAddDish = ()=>{
+        // if(num == 0){
+            dispatch(addItem({props: props.props, number:1}));
+        // }
+        
+        // console.log(items?.info?.id);
+    }
+
+
     return (
 
         <div className="res-dish-container">
@@ -27,9 +47,16 @@ const ResDish = (props) => {
                 </div>
                 <div className="for-img">
                     <button 
-                        className="w-[110px] border-none bg-none inline-block">
-                        <img className="h-[100px] w-full object-cover rounded-md " src={DISH_URL + imageId } alt="no img"/>
-                        <span className="py-2 px-6 rounded-md border border-solid border-gray-500 bg-blue-200 relative shadow-md">ADD</span>
+                        className="w-[110px] h-[90px] border-none bg-none flex flex-col align-middle justify-center"
+                        onClick = {()=>{
+                            
+                            handleAddDish();
+                            setNum(num+1);
+                            
+                        }}
+                    >
+                        <img className="h-[100px] w-full object-cover rounded-md  align-top" src={DISH_URL + imageId } alt="no img"/>
+                        <div className="py-2 w-4/5 m-[10%] rounded-md border border-solid border-gray-500 bg-blue-200 shadow-md align-bottom relative top-[-35%] text-center">{num == 0 ? "ADD" : num}</div>
                     </button>
                 </div> 
             </div>

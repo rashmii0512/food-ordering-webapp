@@ -98,7 +98,7 @@ const ResMenu = () => {
             <hr className="my-2" />
             {
                 filteredMenu.map((c, index)=>(
-                    <div>
+                    <div key={index}>
                         {/* <ResDish key={dish?.card?.info.id} props={dish?.card}/> */}
                         {/* {dish.card?.card?.title} */}
                         <Category 

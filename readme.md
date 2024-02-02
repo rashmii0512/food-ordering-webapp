@@ -36,3 +36,12 @@ try to have less than 100 lines of code for each component
 # 2 types of routing:
 - client side routing
 - server side routing
+
+# Redux toolkit
+ - Install @reduxjs/toolkit and react-redux
+ - Build out store
+ - Connect our store to app
+ - Create slice ( cartSlice)
+ - Dispatch(action)
+ - Selector
+ - 
