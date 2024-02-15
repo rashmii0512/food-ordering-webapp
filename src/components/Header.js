@@ -34,10 +34,10 @@ const Header = () => {
                         onClick = {() => {
                             if(btnNameReact == "Login" ){
                                 setBtnNameReact(["Logout"]);
-                                setUserName("rashmi");
+                                // setUserName("rashmi");
                             }else{
                                 setBtnNameReact(["Login"]) ;
-                                setUserName("Default user");
+                                // setUserName("Default user");
                             }
                         }}
                     >

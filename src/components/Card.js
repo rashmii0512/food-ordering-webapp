@@ -4,6 +4,8 @@ import {Link} from "react-router-dom";
 
 const Card4 = (props) => {
     const {resData, display} = props;
+    console.log(resData);
+    
     const {id, name, cuisines, avgRating , sla } = resData?.info;
     // console.log("/resmenu/"+String(id));
     return (

@@ -44,4 +44,21 @@ try to have less than 100 lines of code for each component
  - Create slice ( cartSlice)
  - Dispatch(action)
  - Selector
- - 
+ 
+
+# Types of testing(for developers)
+- unit testing
+- Integration testing
+- End to End (e2e) testing
+
+# Setting up Testing in our app
+- Install React Testing library
+- Install jest
+- Install babel dependencies
+- Configure babel
+- Configure Parcel Config file to disable default babel transpilation
+- jest configuration : npx jest --init , need typescript : no , jsdom, y, babel, y
+- install jsdom library
+- install @babel/preset-react to make jsx work in test cases
+- include babel present inside the babel config
+- Install npm i -D @testing-library/jest-dom
